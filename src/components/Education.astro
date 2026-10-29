@@ -42,7 +42,7 @@ const certifications = [
 
 <section class="section education-section" id="education">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-tag">05 // Academics & Credentials</span>
       <h2 class="section-title">Education & Certifications</h2>
       <p class="section-subtitle">
@@ -53,7 +53,7 @@ const certifications = [
     <div class="edu-grid">
       <!-- Education Column -->
       <div class="edu-col">
-        <h3 class="col-heading">
+        <h3 class="col-heading reveal">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
@@ -61,7 +61,7 @@ const certifications = [
           <span>Formal Education</span>
         </h3>
 
-        <div class="edu-cards-list">
+        <div class="edu-cards-list reveal-stagger">
           {educationList.map(item => (
             <div class="card edu-card">
               <div class="edu-card-top">
@@ -78,7 +78,7 @@ const certifications = [
 
       <!-- Certifications Column -->
       <div class="cert-col">
-        <h3 class="col-heading">
+        <h3 class="col-heading reveal">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="6"/>
             <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
@@ -86,7 +86,7 @@ const certifications = [
           <span>Professional Certifications</span>
         </h3>
 
-        <div class="cert-cards-list">
+        <div class="cert-cards-list reveal-stagger">
           {certifications.map(cert => (
             <div class="card cert-card">
               <div class="cert-card-top">

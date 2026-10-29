@@ -62,6 +62,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mohammed
     </script>
   </head>
   <body>
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
+
     <slot />
+
+    <!-- Smooth Scroll Reveal & Progress Controller -->
+    <script>
+      // 1. Reading Progress Bar
+      const progressBar = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        if (progressBar) {
+          progressBar.style.width = `${progress}%`;
+        }
+      }, { passive: true });
+
+      // 2. Smooth Intersection Observer for Scroll Reveals
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+        revealObserver.observe(el);
+      });
+    </script>
   </body>
 </html>

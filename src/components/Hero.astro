@@ -17,7 +17,7 @@ const skillsChips = [
   <div class="container hero-container">
     <div class="hero-content">
       <!-- Availability Badge -->
-      <div class="hero-badge-wrapper">
+      <div class="hero-badge-wrapper reveal">
         <span class="badge badge-active">
           <span class="pulse-dot"></span>
           <span>Available Immediately · Open to Global & Remote Roles</span>
@@ -25,14 +25,14 @@ const skillsChips = [
       </div>
 
       <!-- Main Headline -->
-      <h1 class="hero-title">
+      <h1 class="hero-title reveal">
         Hi, I'm <span class="gradient-text">Mohammed Jishad</span>
       </h1>
 
-      <div class="hero-designation">
+      <div class="hero-designation reveal">
         <span class="role-badge">Python & Odoo Developer</span>
         <span class="location-tag">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
@@ -41,21 +41,21 @@ const skillsChips = [
       </div>
 
       <!-- Professional Summary -->
-      <p class="hero-description">
+      <p class="hero-description reveal">
         I engineer custom <strong>Odoo 17 & 18 ERP modules</strong> for live, multi-branch implementations. 
         With a foundation in <em>Artificial Intelligence & Data Science</em>, I translate complex enterprise business requirements into robust 
         Python ORM logic, OWL 2 frontend customisations, and PostgreSQL-backed reporting.
       </p>
 
       <!-- Quick-Facts Skills Chips -->
-      <div class="hero-chips" aria-label="Core Technology Stack">
+      <div class="hero-chips reveal" aria-label="Core Technology Stack">
         {skillsChips.map(skill => (
           <span class="badge">{skill}</span>
         ))}
       </div>
 
       <!-- CTA Buttons & Social Links -->
-      <div class="hero-actions">
+      <div class="hero-actions reveal">
         <a href={`${base}/#projects`} class="btn btn-primary">
           <span>View Featured Projects</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -113,7 +113,7 @@ const skillsChips = [
     </div>
 
     <!-- Visual Avatar / Photo Space (Blank Placeholder designed for final photo) -->
-    <div class="hero-visual">
+    <div class="hero-visual reveal">
       <div class="avatar-card">
         <div class="avatar-inner">
           <div class="avatar-graphic">
@@ -150,8 +150,8 @@ const skillsChips = [
 
 <style>
   .hero-section {
-    padding-top: 5rem;
-    padding-bottom: 5.5rem;
+    padding-top: 6.5rem;
+    padding-bottom: 7.25rem;
     position: relative;
     overflow: hidden;
   }
@@ -159,20 +159,20 @@ const skillsChips = [
   .hero-container {
     display: grid;
     grid-template-columns: 1.25fr 0.85fr;
-    gap: 3.5rem;
+    gap: 4rem;
     align-items: center;
   }
 
   .hero-badge-wrapper {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
     font-weight: 800;
     line-height: 1.15;
-    margin-bottom: 0.85rem;
-    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    letter-spacing: -0.035em;
   }
 
   .gradient-text {
