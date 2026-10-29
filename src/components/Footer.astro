@@ -1,0 +1,157 @@
+---
+const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <span class="footer-logo">MJ</span>
+        <span class="footer-name">Mohammed Jishad</span>
+      </div>
+      <p class="footer-copy">
+        © {currentYear} Mohammed Jishad · Python & Odoo Developer. All rights reserved.
+      </p>
+      <p class="footer-tech">
+        Static site generated with <strong>Astro.js</strong> and custom <strong>Vanilla CSS</strong>. Zero heavy UI dependencies.
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <ul class="footer-nav">
+        <li><a href={`${base}/#home`}>Home</a></li>
+        <li><a href={`${base}/#about`}>About</a></li>
+        <li><a href={`${base}/#skills`}>Skills</a></li>
+        <li><a href={`${base}/#experience`}>Experience</a></li>
+        <li><a href={`${base}/#projects`}>Projects</a></li>
+        <li><a href={`${base}/#contact`}>Contact</a></li>
+      </ul>
+
+      <a href="#header" class="back-to-top" aria-label="Back to top">
+        <span>Back to Top</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+    padding: 3rem 0;
+    margin-top: auto;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 450px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .footer-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .footer-tech {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .footer-tech strong {
+    color: var(--text-secondary);
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.25rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+  }
+
+  .footer-nav a {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+  }
+
+  .footer-nav a:hover {
+    color: var(--accent-primary);
+  }
+
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-sm);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    transition: all var(--transition-fast);
+  }
+
+  .back-to-top:hover {
+    transform: translateY(-2px);
+    background: var(--bg-card);
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-right {
+      align-items: flex-start;
+    }
+  }
+</style>

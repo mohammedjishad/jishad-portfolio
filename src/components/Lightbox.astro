@@ -1,0 +1,164 @@
+---
+---
+
+<div id="image-lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Image Preview">
+  <div class="lightbox-backdrop"></div>
+  <div class="lightbox-content">
+    <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close preview">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="lightbox-image-wrap">
+      <img id="lightbox-img" src="" alt="Full resolution preview" />
+    </div>
+    <div class="lightbox-caption">
+      <h4 id="lightbox-title"></h4>
+      <p id="lightbox-desc"></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+  }
+
+  .lightbox-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(5, 8, 15, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    transform: scale(0.96);
+    transition: transform var(--transition-normal);
+  }
+
+  .lightbox-modal.open .lightbox-content {
+    transform: scale(1);
+  }
+
+  .lightbox-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .lightbox-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+  }
+
+  .lightbox-image-wrap {
+    width: 100%;
+    overflow: auto;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: calc(90vh - 80px);
+  }
+
+  .lightbox-image-wrap img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+  }
+
+  .lightbox-caption {
+    padding: 1rem 1.5rem;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .lightbox-caption h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .lightbox-caption p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const closeBtn = document.getElementById('lightbox-close');
+  const backdrop = lightbox?.querySelector('.lightbox-backdrop');
+
+  function openLightbox(src: string, title: string, desc: string) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxDesc) lightboxDesc.textContent = desc;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  backdrop?.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox?.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+
+  // Attach to global window for component buttons
+  (window as any).openLightbox = openLightbox;
+</script>

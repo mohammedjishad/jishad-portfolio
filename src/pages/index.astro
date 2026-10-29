@@ -1,16 +1,34 @@
 ---
+import "../styles/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Education from "../components/Education.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import Lightbox from "../components/Lightbox.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout
+  title="Mohammed Jishad | Python & Odoo Developer | ERP Implementation"
+  description="Portfolio of Mohammed Jishad, a Python and Odoo Developer specializing in custom Odoo 17 & 18 module engineering, multi-branch ERP systems, OWL 2, and PostgreSQL."
+>
+  <Navbar />
+  
+  <main id="main-content">
+    <Hero />
+    <About />
+    <Skills />
+    <Experience />
+    <Projects />
+    <Education />
+    <Contact />
+  </main>
+
+  <Footer />
+  <Lightbox />
+</MainLayout>

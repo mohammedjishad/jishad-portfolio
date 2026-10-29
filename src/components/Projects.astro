@@ -1,0 +1,770 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const textileScreenshots = [
+  {
+    id: "dashboard",
+    title: "Executive Management Dashboard (OWL 2)",
+    subtitle: "Real-time production KPIs, WIP pipeline stages, workcenter backlog, and inventory tracking.",
+    src: `${base}/images/textile-erp/dashboard.png`
+  },
+  {
+    id: "cost-sheet",
+    title: "Four-Tier Cost Sheet & WIP Engine (WH/MO/00280)",
+    subtitle: "Automated cost accumulation across Material, Labour, Machine, and Overhead with 360° lot tracking.",
+    src: `${base}/images/textile-erp/cost-sheet.png`
+  },
+  {
+    id: "wip-tracking",
+    title: "Live WIP Stage Tracking across Multi-Variants",
+    subtitle: "Batch tracking of shirt variants (S, M) through Cutting, Stitching, Finishing, Quality Check, and Packing.",
+    src: `${base}/images/textile-erp/wip-tracking.png`
+  },
+  {
+    id: "profitability",
+    title: "Textile Accounting & Product Profitability",
+    subtitle: "Calculated sales margins, average unit costs, and gross profit breakdown per manufactured garment.",
+    src: `${base}/images/textile-erp/product-profitability.png`
+  }
+];
+---
+
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">04 // Featured Projects</span>
+      <h2 class="section-title">Enterprise ERP Architecture & Implementation</h2>
+      <p class="section-subtitle">
+        Bridging high-volume operational workflows with clean Odoo 18 engineering.
+      </p>
+    </div>
+
+    <!-- Confidentiality & Presentation Policy Banner -->
+    <div class="project-policy-banner">
+      <div class="policy-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </div>
+      <p class="policy-text">
+        <strong>Presentation Strategy:</strong> Full application screenshots and open-source codebase are showcased for the independent <em>Textile ERP Suite</em>. Client enterprise implementations (<em>MYG Helpdesk</em> and <em>Mario Restaurant ERP</em>) are presented strictly through architectural case studies to protect client confidentiality and NDA agreements.
+      </p>
+    </div>
+
+    <!-- ==================== PROJECT 01: TEXTILE ERP SUITE ==================== -->
+    <div class="card flagship-card">
+      <div class="flagship-badge-row">
+        <span class="badge badge-accent">Flagship Personal Project</span>
+        <span class="badge">Odoo 18 Community Edition</span>
+        <span class="badge">8 Custom Addon Suite</span>
+      </div>
+
+      <div class="flagship-header">
+        <div>
+          <h3 class="flagship-title">Textile ERP Suite — Garment Manufacturing & Costing</h3>
+          <p class="flagship-tagline">
+            End-to-end textile and apparel manufacturing ERP built independently to solve domain gaps standard ERPs fail to handle: decimal/roll-based fabric quantities, ratio-cut multi-size manufacturing orders, and lot-level quality gating.
+          </p>
+        </div>
+        <div class="flagship-cta">
+          <a href="https://github.com/mohammedjishad/textile-erp-odoo18" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+            <span>View Source on GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Screenshot Showcase with Interactive Switcher -->
+      <div class="showcase-container">
+        <!-- Interactive Tabs -->
+        <div class="showcase-tabs" role="tablist">
+          {textileScreenshots.map((item, index) => (
+            <button 
+              class={`showcase-tab-btn ${index === 0 ? 'active' : ''}`}
+              data-target={item.id}
+              role="tab"
+              aria-selected={index === 0 ? "true" : "false"}
+            >
+              <span class="tab-index">0{index + 1}</span>
+              <span class="tab-title">{item.title.split('(')[0]}</span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Screenshot Display Area -->
+        <div class="showcase-display">
+          {textileScreenshots.map((item, index) => (
+            <div 
+              class={`screenshot-panel ${index === 0 ? 'active' : ''}`} 
+              id={`panel-${item.id}`}
+            >
+              <div class="screenshot-img-box">
+                <img src={item.src} alt={item.title} loading="lazy" />
+                <button 
+                  class="zoom-trigger-btn"
+                  onclick={`openLightbox('${item.src}', '${item.title}', '${item.subtitle}')`}
+                  title="Click to view full screen"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                  </svg>
+                  <span>Inspect Full Resolution</span>
+                </button>
+              </div>
+              <div class="screenshot-meta">
+                <h4>{item.title}</h4>
+                <p>{item.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Key Architectural Innovations -->
+      <div class="flagship-features">
+        <h4 class="features-heading">Technical Highlights & Custom Addon Architecture:</h4>
+        <div class="features-grid">
+          <div class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <div>
+              <strong>Shortage-Based MTO Sales:</strong> Automated Make-to-Order triggering BOM explosions only for shortage quantities, reducing holding costs.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">📐</span>
+            <div>
+              <strong>Multi-Variant Manufacturing Orders:</strong> Single MO processing multiple garment sizes (S, M, L, XL) in a single cutting batch.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">🧵</span>
+            <div>
+              <strong>Fabric Yield & Roll Traceability:</strong> Decimal-precision meter consumption, roll-level lot tracking, and scrap/wastage variance reporting.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">🛡️</span>
+            <div>
+              <strong>Quality Gates & Rework Logic:</strong> Hard-locked stock deliveries that prevent dispatch until multi-stage quality checks pass.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">📊</span>
+            <div>
+              <strong>Real-Time OWL 2 Management Dashboard:</strong> Live JSON-RPC endpoints feeding real-time financial summaries and WIP workcenter pipelines.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">💰</span>
+            <div>
+              <strong>Four-Tier Production Costing Engine:</strong> Granular cost accumulation factoring raw materials, direct labor, machine wear, and overheads.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">🛒</span>
+            <div>
+              <strong>POS Extensions for Decimal Fabric:</strong> Custom OWL client patches for roll/lot selection and manager-PIN discount authorization.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-icon">🧪</span>
+            <div>
+              <strong>Automated Test Suites & Sandboxes:</strong> Python unit tests verifying cost calculations, variant lines, and stage-gate constraints.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Tags -->
+      <div class="project-tags-footer">
+        <span class="badge">Python 3.12</span>
+        <span class="badge">Odoo 18 Community</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">OWL 2</span>
+        <span class="badge">XML Views</span>
+        <span class="badge">XPath</span>
+        <span class="badge">JSON-RPC</span>
+        <span class="badge">SCSS</span>
+      </div>
+    </div>
+
+    <!-- ==================== CLIENT CASE STUDIES (CONFIDENTIAL) ==================== -->
+    <div class="client-projects-grid">
+      <!-- Project 02: MYG Helpdesk -->
+      <div class="card client-project-card">
+        <div class="client-card-top">
+          <div class="client-badge-row">
+            <span class="badge badge-nda">Client Project · Confidential Case Study</span>
+            <span class="badge">Odoo 18</span>
+          </div>
+          <h3 class="client-title">Enterprise Helpdesk & Service Operations ERP</h3>
+          <p class="client-domain">Retail Electronics Chain — Serving hundreds of showrooms across 14 districts</p>
+        </div>
+
+        <div class="nda-callout">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Commercial NDA: Source code and internal company screenshots are protected.</span>
+        </div>
+
+        <!-- Abstract Workflow Architecture Graphic -->
+        <div class="workflow-diagram">
+          <div class="flow-step">
+            <span class="step-num">01</span>
+            <span class="step-name">Ticket Lifecycle</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">02</span>
+            <span class="step-name">Transfer Wizard</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">03</span>
+            <span class="step-name">Solver Matrix</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">04</span>
+            <span class="step-name">SLA Engine</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">05</span>
+            <span class="step-name">6-Tier RBAC</span>
+          </div>
+        </div>
+
+        <div class="client-contributions">
+          <h4>Engineering Contributions:</h4>
+          <ul>
+            <li>Developed the custom <code>myg_helpdesk</code> addon covering full ticket state lifecycle with server-side transition validation preventing invalid state jumps.</li>
+            <li>Engineered stack-based inter-departmental ticket transfer and return using <code>TransientModel</code> wizards with audit breadcrumbs.</li>
+            <li>Implemented district-aware auto-assignment and an embedded weekly solver availability matrix displaying live HR attendance and ticket workload.</li>
+            <li>Engineered SLA controls with start/end time validation, controlled extension wizards, and <code>ir.cron</code> auto-reminders.</li>
+            <li>Constructed a 6-tier role-based access model using <code>ir.rule</code> scoped by branch, district, and department.</li>
+            <li>Developed OWL 2 frontend patches, XLSX reporting wizards (<code>xlsxwriter</code>), and customer portal controllers.</li>
+          </ul>
+        </div>
+
+        <div class="project-tags-footer">
+          <span class="badge">Python</span>
+          <span class="badge">Odoo 18</span>
+          <span class="badge">OWL 2</span>
+          <span class="badge">ir.rule</span>
+          <span class="badge">ir.cron</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">xlsxwriter</span>
+        </div>
+      </div>
+
+      <!-- Project 03: Mario Restaurant ERP -->
+      <div class="card client-project-card">
+        <div class="client-card-top">
+          <div class="client-badge-row">
+            <span class="badge badge-nda">Client Project · Confidential Case Study</span>
+            <span class="badge">Odoo 18 Community</span>
+          </div>
+          <h3 class="client-title">Multi-Branch Restaurant & POS ERP Integration</h3>
+          <p class="client-domain">F&B Chain — Multi-outlet restaurant, cafe, and juice-bar operations</p>
+        </div>
+
+        <div class="nda-callout">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Commercial NDA: Source code and internal POS databases are protected.</span>
+        </div>
+
+        <!-- Abstract Workflow Architecture Graphic -->
+        <div class="workflow-diagram">
+          <div class="flow-step">
+            <span class="step-num">01</span>
+            <span class="step-name">POS Cashier</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">02</span>
+            <span class="step-name">Cache Invalidation</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">03</span>
+            <span class="step-name">Day Close Engine</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">04</span>
+            <span class="step-name">POS-to-MRP BOM</span>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <span class="step-num">05</span>
+            <span class="step-name">Docker Stacks</span>
+          </div>
+        </div>
+
+        <div class="client-contributions">
+          <h4>Engineering Contributions:</h4>
+          <ul>
+            <li>Customized backend Python models and OWL/XML views within an extensive 24-module custom addon suite.</li>
+            <li>Refactored multi-session POS Day Close financial reconciliation engine, fixing opening-balance carry-forward across HR expenses and vendor bill payments (Cash and UPI journals).</li>
+            <li>Delivered OWL/XML POS overrides enabling instant cache invalidation across cashier terminals without rebooting sessions.</li>
+            <li>Integrated POS-to-MRP architecture triggering automated BOM explosion and kitchen Manufacturing Order creation from confirmed sales.</li>
+            <li>Maintained containerized development and deployment workflows on Docker Compose and PostgreSQL 16.</li>
+          </ul>
+        </div>
+
+        <div class="project-tags-footer">
+          <span class="badge">Python</span>
+          <span class="badge">Odoo 18</span>
+          <span class="badge">OWL 2</span>
+          <span class="badge">POS</span>
+          <span class="badge">MRP / BOM</span>
+          <span class="badge">Docker Compose</span>
+          <span class="badge">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-policy-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    margin-bottom: 2.5rem;
+  }
+
+  .policy-icon {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .policy-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .policy-text strong {
+    color: var(--text-primary);
+  }
+
+  .policy-text em {
+    font-style: normal;
+    color: var(--accent-primary);
+    font-weight: 600;
+  }
+
+  /* Flagship Card (Textile ERP) */
+  .flagship-card {
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-strong);
+    background-color: var(--bg-card);
+  }
+
+  .flagship-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .flagship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .flagship-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.65rem;
+    line-height: 1.25;
+  }
+
+  .flagship-tagline {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 800px;
+  }
+
+  .flagship-cta {
+    flex-shrink: 0;
+  }
+
+  /* Showcase Tabs & Display */
+  .showcase-container {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+
+  .showcase-tabs {
+    display: flex;
+    overflow-x: auto;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .showcase-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+
+  .showcase-tab-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+  }
+
+  .showcase-tab-btn.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+    background-color: var(--bg-tertiary);
+  }
+
+  .tab-index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .showcase-display {
+    padding: 1.25rem;
+  }
+
+  .screenshot-panel {
+    display: none;
+  }
+
+  .screenshot-panel.active {
+    display: block;
+  }
+
+  .screenshot-img-box {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background-color: #0b0f19;
+  }
+
+  .screenshot-img-box img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+  }
+
+  .zoom-trigger-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background-color: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: all var(--transition-fast);
+  }
+
+  .zoom-trigger-btn:hover {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+
+  .screenshot-meta {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+
+  .screenshot-meta h4 {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .screenshot-meta p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  /* Features Grid */
+  .features-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .feature-icon {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .feature-item strong {
+    color: var(--text-primary);
+  }
+
+  .project-tags-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  /* Client Project Cards */
+  .client-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .client-project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem;
+    height: 100%;
+  }
+
+  .client-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .client-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .client-domain {
+    font-size: 0.92rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+
+  .nda-callout {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    background-color: var(--badge-nda-bg);
+    border: 1px solid var(--badge-nda-border);
+    border-radius: var(--radius-sm);
+    color: var(--badge-nda-text);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Abstract Workflow Graphic */
+  .workflow-diagram {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0.85rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    padding: 0.35rem 0.55rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent-primary);
+    font-weight: 700;
+  }
+
+  .step-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .flow-arrow {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .client-contributions {
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+  }
+
+  .client-contributions h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .client-contributions ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .client-contributions li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .client-contributions li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .client-contributions code {
+    font-size: 0.82rem;
+    padding: 0.1rem 0.3rem;
+    background: var(--code-bg);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 960px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .client-projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .flagship-header {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .flagship-card {
+      padding: 1.75rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .workflow-diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .flow-arrow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Tabs switcher for Textile ERP Screenshots
+  const tabs = document.querySelectorAll('.showcase-tab-btn');
+  const panels = document.querySelectorAll('.screenshot-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-target');
+
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById(`panel-${targetId}`)?.classList.add('active');
+    });
+  });
+</script>

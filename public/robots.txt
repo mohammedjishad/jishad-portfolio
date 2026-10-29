@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohammedjishad.github.io/jishad-portfolio/sitemap-index.xml

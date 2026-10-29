@@ -1,0 +1,412 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const skillsChips = [
+  "Odoo 18 & 17",
+  "Python 3.12",
+  "PostgreSQL",
+  "OWL 2",
+  "REST / JSON APIs",
+  "Docker Compose",
+  "Git",
+  "Indian GST"
+];
+---
+
+<section class="section hero-section" id="home">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <!-- Availability Badge -->
+      <div class="hero-badge-wrapper">
+        <span class="badge badge-active">
+          <span class="pulse-dot"></span>
+          <span>Available Immediately · Open to Global & Remote Roles</span>
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Mohammed Jishad</span>
+      </h1>
+
+      <div class="hero-designation">
+        <span class="role-badge">Python & Odoo Developer</span>
+        <span class="location-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Kerala, India
+        </span>
+      </div>
+
+      <!-- Professional Summary -->
+      <p class="hero-description">
+        I engineer custom <strong>Odoo 17 & 18 ERP modules</strong> for live, multi-branch implementations. 
+        With a foundation in <em>Artificial Intelligence & Data Science</em>, I translate complex enterprise business requirements into robust 
+        Python ORM logic, OWL 2 frontend customisations, and PostgreSQL-backed reporting.
+      </p>
+
+      <!-- Quick-Facts Skills Chips -->
+      <div class="hero-chips" aria-label="Core Technology Stack">
+        {skillsChips.map(skill => (
+          <span class="badge">{skill}</span>
+        ))}
+      </div>
+
+      <!-- CTA Buttons & Social Links -->
+      <div class="hero-actions">
+        <a href={`${base}/#projects`} class="btn btn-primary">
+          <span>View Featured Projects</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </a>
+
+        <a href={`${base}/resume/Mohammed-Jishad-CV.pdf`} download="Mohammed-Jishad-CV.pdf" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download CV</span>
+        </a>
+
+        <a 
+          href="https://wa.me/918592081025?text=Hi%20Jishad,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20Odoo%20Developer%20opportunity." 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-whatsapp"
+          title="Chat on WhatsApp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Social Icons -->
+        <div class="hero-socials">
+          <a href="https://github.com/mohammedjishad" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub: mohammedjishad">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+          </a>
+
+          <a href="https://linkedin.com/in/mohammedjishad" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn: Mohammed Jishad">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+
+          <a href="mailto:jishadalikkal1919@gmail.com" class="btn-icon" aria-label="Send Email" title="Email: jishadalikkal1919@gmail.com">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual Avatar / Photo Space (Blank Placeholder designed for final photo) -->
+    <div class="hero-visual">
+      <div class="avatar-card">
+        <div class="avatar-inner">
+          <div class="avatar-graphic">
+            <div class="avatar-glow"></div>
+            <div class="avatar-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dev-avatar-icon">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span class="avatar-status-badge" title="Active Developer">Odoo 18</span>
+            </div>
+          </div>
+          <div class="avatar-info">
+            <div class="avatar-meta-title">Mohammed Jishad</div>
+            <div class="avatar-meta-subtitle">Python & Odoo Developer</div>
+            <div class="avatar-spec">AI & Data Science (B.Tech)</div>
+          </div>
+        </div>
+
+        <div class="avatar-badges">
+          <div class="stat-pill">
+            <span class="stat-num">8+</span>
+            <span class="stat-label">Custom Odoo Addons</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">ERP Implementations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding-top: 5rem;
+    padding-bottom: 5.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .hero-badge-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.03em;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-designation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .role-badge {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+  }
+
+  .location-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+    max-width: 580px;
+  }
+
+  .hero-description strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .hero-description em {
+    font-style: normal;
+    color: var(--text-primary);
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .hero-socials {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.25rem;
+  }
+
+  /* Visual Avatar Card */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .avatar-card {
+    width: 100%;
+    max-width: 360px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    transition: all var(--transition-normal);
+  }
+
+  .avatar-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+
+  .avatar-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .avatar-graphic {
+    position: relative;
+    margin-bottom: 1.25rem;
+  }
+
+  .avatar-glow {
+    position: absolute;
+    inset: -12px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .avatar-icon-wrap {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 2px dashed var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--text-muted);
+  }
+
+  .avatar-status-badge {
+    position: absolute;
+    bottom: -4px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    box-shadow: 0 2px 6px var(--accent-glow);
+  }
+
+  .avatar-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .avatar-meta-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .avatar-meta-subtitle {
+    font-size: 0.9rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+  }
+
+  .avatar-spec {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .avatar-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .stat-pill {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: left;
+    }
+
+    .hero-visual {
+      order: -1;
+      justify-content: flex-start;
+    }
+
+    .avatar-card {
+      max-width: 320px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+
+    .hero-socials {
+      justify-content: center;
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .hero-chips {
+      gap: 0.4rem;
+    }
+  }
+</style>

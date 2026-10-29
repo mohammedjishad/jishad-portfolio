@@ -1,0 +1,209 @@
+---
+const educationList = [
+  {
+    degree: "B.Tech — Artificial Intelligence & Data Science",
+    institution: "Dhanalakshmi Srinivasan College of Engineering",
+    location: "Coimbatore, India",
+    period: "2020 – 2024",
+    score: "CGPA: 7.9",
+    details: "Specialized in algorithm design, relational database schemas, statistical modeling, and Python software engineering."
+  },
+  {
+    degree: "Higher Secondary (Computer Science)",
+    institution: "KHSS Kumaramputhur, State Board",
+    location: "Kerala, India",
+    period: "2018 – 2020",
+    score: "Percentage: 75%",
+    details: "Foundational coursework in C++, computer systems, and computational problem solving."
+  }
+];
+
+const certifications = [
+  {
+    title: "Google Data Analytics Professional Certificate",
+    issuer: "Google",
+    topics: "SQL, Google BigQuery, Data Cleaning, Tableau, Data Visualisation",
+    badge: "Professional"
+  },
+  {
+    title: "Data Science with GenAI",
+    issuer: "Industry Credential",
+    topics: "Exploratory Data Analysis, Data Preprocessing, ML Workflows, Power BI",
+    badge: "Specialization"
+  },
+  {
+    title: "Python Machine Learning",
+    issuer: "Advanced Training",
+    topics: "Python 3, Data Structures, ML Algorithms, Predictive Modeling",
+    badge: "Technical"
+  }
+];
+---
+
+<section class="section education-section" id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">05 // Academics & Credentials</span>
+      <h2 class="section-title">Education & Certifications</h2>
+      <p class="section-subtitle">
+        Academic foundations in computer science and continuous industry credentials.
+      </p>
+    </div>
+
+    <div class="edu-grid">
+      <!-- Education Column -->
+      <div class="edu-col">
+        <h3 class="col-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <span>Formal Education</span>
+        </h3>
+
+        <div class="edu-cards-list">
+          {educationList.map(item => (
+            <div class="card edu-card">
+              <div class="edu-card-top">
+                <span class="edu-period">{item.period}</span>
+                <span class="badge badge-accent">{item.score}</span>
+              </div>
+              <h4 class="edu-degree">{item.degree}</h4>
+              <p class="edu-inst">{item.institution} · <span class="edu-loc">{item.location}</span></p>
+              <p class="edu-details">{item.details}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Certifications Column -->
+      <div class="cert-col">
+        <h3 class="col-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          <span>Professional Certifications</span>
+        </h3>
+
+        <div class="cert-cards-list">
+          {certifications.map(cert => (
+            <div class="card cert-card">
+              <div class="cert-card-top">
+                <h4 class="cert-title">{cert.title}</h4>
+                <span class="badge">{cert.badge}</span>
+              </div>
+              <p class="cert-issuer">Issued by: <strong>{cert.issuer}</strong></p>
+              <p class="cert-topics">Coverage: {cert.topics}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .col-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .col-heading svg {
+    color: var(--accent-primary);
+  }
+
+  .edu-cards-list,
+  .cert-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .edu-card,
+  .cert-card {
+    padding: 1.5rem;
+  }
+
+  .edu-card-top,
+  .cert-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.65rem;
+  }
+
+  .edu-period {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .edu-degree {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .edu-inst {
+    font-size: 0.9rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.65rem;
+    font-weight: 500;
+  }
+
+  .edu-loc {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .edu-details {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .cert-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    max-width: 80%;
+  }
+
+  .cert-issuer {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+  }
+
+  .cert-issuer strong {
+    color: var(--accent-primary);
+  }
+
+  .cert-topics {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 860px) {
+    .edu-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

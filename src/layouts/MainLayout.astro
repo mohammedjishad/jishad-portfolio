@@ -1,0 +1,67 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mohammed Jishad | Python & Odoo Developer | ERP Implementation",
+  description = "Portfolio of Mohammed Jishad, a Python & Odoo Developer specializing in custom Odoo 17 & 18 module development, business automation, OWL 2, and PostgreSQL.",
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mohammedjishad.github.io");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Mohammed Jishad" />
+    <meta name="keywords" content="Mohammed Jishad, Odoo Developer, Python Developer, ERP Implementation, Odoo 18, Odoo 17, OWL 2, PostgreSQL, Textile ERP, Kerala, India" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/images/textile-erp/dashboard.png`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${base}/images/textile-erp/dashboard.png`} />
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Theme Initialization Script (Avoids theme flashing) -->
+    <script is:inline>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
