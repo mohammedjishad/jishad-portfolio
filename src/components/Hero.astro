@@ -6,9 +6,9 @@ const skillsChips = [
   "Python 3.12",
   "PostgreSQL",
   "OWL 2",
+  "Data Analytics & Power BI",
   "REST / JSON APIs",
   "Docker Compose",
-  "Git",
   "Indian GST"
 ];
 ---
@@ -260,12 +260,23 @@ const skillsChips = [
     box-shadow: var(--shadow-lg);
     position: relative;
     transition: all var(--transition-normal);
+    animation: gentle-float 7s ease-in-out infinite;
   }
 
   .avatar-card:hover {
     border-color: var(--border-strong);
     box-shadow: var(--shadow-xl);
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    animation-play-state: paused;
+  }
+
+  @keyframes gentle-float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-9px);
+    }
   }
 
   .avatar-inner {

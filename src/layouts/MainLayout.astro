@@ -67,7 +67,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mohammed
 
     <slot />
 
-    <!-- Smooth Scroll Reveal & Progress Controller -->
+    <!-- Smooth Scroll Reveal, Progress Bar & Hexafolio Card Spotlight -->
     <script>
       // 1. Reading Progress Bar
       const progressBar = document.getElementById('scroll-progress');
@@ -91,11 +91,57 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://mohammed
       }, {
         root: null,
         rootMargin: '0px 0px -40px 0px',
-        threshold: 0.1
+        threshold: 0.08
       });
 
       document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
         revealObserver.observe(el);
+      });
+
+      // 3. Interactive Card Spotlight Tracking (Hexafolio / modern award-winning aesthetic)
+      const spotlightSelector = '.card, .pillar-card, .client-project-card, .flagship-card, .timeline-content, .edu-card, .cert-card, .contact-item-box';
+      const spotlightCards = document.querySelectorAll<HTMLElement>(spotlightSelector);
+
+      spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--mouse-x', '-999px');
+          card.style.setProperty('--mouse-y', '-999px');
+        });
+      });
+
+      // 4. Smooth Anchor Link Navigation
+      document.querySelectorAll<HTMLAnchorElement>('a[href*="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (!href) return;
+          const hashIndex = href.indexOf('#');
+          if (hashIndex === -1) return;
+          const targetId = href.substring(hashIndex + 1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            e.preventDefault();
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            // Update URL hash smoothly without jump
+            history.pushState(null, '', `#${targetId}`);
+          }
+        });
       });
     </script>
   </body>
